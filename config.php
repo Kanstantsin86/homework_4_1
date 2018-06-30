@@ -1,4 +1,8 @@
 <?php
-$connect = mysqli_connect("localhost", "root", "", "books");
-/*$connect = mysqli_connect("localhost", "litvink", "neto1742", "books");*/
-$connect->set_charset("utf8");
+//$username = "litvink";
+//$password = "neto1742";
+$servername = "localhost"; 
+$dbname = "books";
+$username = "root";
+$password = "";
+$pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);

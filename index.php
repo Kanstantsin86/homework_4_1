@@ -1,20 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Елена
- * Date: 03.05.2018
- * Time: 14:26
- */
-
 require ("config.php");
-
-$sql = "select * from books";
-$res = mysqli_query($connect, $sql);
-
-
-while($data=mysqli_fetch_assoc($res)){
-    
-}
+$sql = "SELECT * FROM books";
 ?>
 
 <html>
@@ -22,7 +8,6 @@ while($data=mysqli_fetch_assoc($res)){
     <title>Address Book</title>
     <meta charset="utf8">
     <html lang="ru">
-
     <style>
         table {
             width: 70%;
@@ -53,10 +38,8 @@ while($data=mysqli_fetch_assoc($res)){
         <td><h4>ISBN</h4></td>
     </tr>
     </thead>
-
-
     <tbody>
-    <?php foreach ($res as $item => $value) { ?>
+    <?php foreach ($pdo->query($sql) as $item => $value) { ?>
         <tr>
             <td><?php echo $value["name"]?></td>
             <td><?php echo $value["author"]?></td>
@@ -65,7 +48,6 @@ while($data=mysqli_fetch_assoc($res)){
             <td><?php echo $value["isbn"]?></td>
         </tr>
     <?php } ?>
-
     </tbody>
 </table>
 </body>
